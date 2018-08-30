@@ -1,22 +1,20 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 23
     buildToolsVersion "25.0.2"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-        ndk {
-            abiFilters "armeabi-v7a", "x86"
-        }
+        targetSdkVersion 23
     }
 }
 
 dependencies {
-    //noinspection GradleDynamicVersion
     provided 'com.facebook.react:react-native:+'
-    compile 'com.yqritc:android-scalablevideoview:1.0.4'
+    compile 'com.google.android.exoplayer:exoplayer:2.7.3'
+    compile('com.google.android.exoplayer:extension-okhttp:2.7.3') {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
 }
